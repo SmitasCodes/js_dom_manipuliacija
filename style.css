@@ -54,39 +54,42 @@ form{
 /* Table */
 table{
     width: 1000px;
-    height: 50px;
     margin: 0 auto;
     background-color: #fff;
+}
+
+.row{
+    height: 50px;
 }
 
 table th{
     border-right: 1px solid rgb(160, 160, 160)
 }
 
-#p-table{
+.p-table{
     width: 5%;
 }
 
-#subject-table{
+.subject-table{
     width: 20%;
 }
 
-#priority-table{
+.priority-table{
     width: 12%;
 }
 
-#due-table{
+.due-table{
     width: 11%;
 }
 
-#status-table{
+.status-table{
     width: 12%;
 }
 
-#percent-table{
+.percent-table{
     width: 20%;
 }
 
-#modified-table{
+.modified-table{
     width: 20%;
 }
