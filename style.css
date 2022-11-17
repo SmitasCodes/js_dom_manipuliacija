@@ -55,11 +55,15 @@ form{
 table{
     width: 1000px;
     margin: 0 auto;
-    background-color: #fff;
+}
+
+#thead-row{
+    background-color: #fff;;
 }
 
 .row{
     height: 50px;
+    text-align: center;
 }
 
 table th{
@@ -67,7 +71,7 @@ table th{
 }
 
 .p-table{
-    width: 5%;
+    width: 100px;
 }
 
 .subject-table{
@@ -88,8 +92,28 @@ table th{
 
 .percent-table{
     width: 20%;
+    text-align: left;
 }
 
 .modified-table{
     width: 20%;
+}
+
+/* Progress bar  */
+.container {
+    background-color: rgb(192, 192, 192);
+    width: 80%;
+    border-radius: 15px;
+    height: 15px;
+    float: right;
+}
+
+.percent-bar {
+    background-color: rgb(116, 194, 92);
+    color: white;
+    padding: 1%;
+    height: 15px;
+    text-align: right;
+    font-size: 20px;
+    border-radius: 15px;
 }
