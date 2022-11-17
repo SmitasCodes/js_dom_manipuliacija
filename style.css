@@ -117,3 +117,25 @@ table th{
     font-size: 20px;
     border-radius: 15px;
 }
+
+/* Bar width */
+
+.percent0{
+    width: 1%;
+}
+
+.percent25{
+    width: 25%;
+}
+
+.percent50{
+    width: 50%;
+}
+
+.percent75{
+    width: 75%;
+}
+
+.percent100{
+    width: 100%;
+}

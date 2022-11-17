@@ -56,20 +56,20 @@ function pagrindine() {
             td.appendChild(container);
             console.log(verte)
             switch (verte){
-                case 0:
-                    bar.style.cssText = "width: 0;"
+                case '0':
+                    bar.classList.add('percent0');
                     break;
-                case 25:
-                    bar.style.cssText = "width: 25%;"
+                case '25':
+                    bar.classList.add('percent25');
                     break;
-                case 50:
-                    bar.style.cssText = "width: 50%;"
+                case '50':
+                    bar.classList.add('percent50');
                     break;
-                case 75:
-                    bar.style.cssText = "width: 75%;"
+                case '75':
+                    bar.classList.add('percent75');
                     break;
-                case 100:
-                    bar.style.cssText = "width: 100%;"
+                case '100':
+                    bar.classList.add('percent100');
                     break;
             }
         }
