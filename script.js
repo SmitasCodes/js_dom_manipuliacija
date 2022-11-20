@@ -1,5 +1,4 @@
 function pagrindine() {
-    let spausdinimoFunkcija = false;
     // Funkcija kuri sustabdo forma nuo atsinaujimo paspaudus submit
     event.preventDefault();
     // Reikalingi kintamieji su html elementais
@@ -19,7 +18,6 @@ function pagrindine() {
     let today = new Date();
     let dateTime = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate()+' '+today.getHours()+"-"+today.getMinutes()+"-"+today.getSeconds();;
     
-    
     // Objektas atspaudinimui
     arr =   [{ p: "p" },
             { subject: subject.value },
@@ -32,14 +30,14 @@ function pagrindine() {
     // Ciklas kuris tikrina ar forma uzpildyta
     for (let key in arr) {
         for (let key2 in arr[key]) {
-            if (arr[key][key2].length == 0) {
+            if (arr[key][key2].length == 0 ||arr[key][key2] =="disabled") {
                 alert('Prasome uzpildyti forma pilnai');
                 return;
-            } else(
-                spausdinimas(key2,arr[key][key2])
-            )
+            }
+            spausdinimas(key2, arr[key][key2])
         }
     }
+
     // Funkcija kuri atspausdins duomenis
     function spausdinimas(raktas,verte){
         tbody.appendChild(tr);
@@ -72,13 +70,15 @@ function pagrindine() {
                     bar.classList.add('percent100');
                     break;
             }
+        } else if(raktas=="modified"){
+            let img = document.createElement("img");
+            img.src = "./icons/close.png";
+            img.classList.add("close")
+            td.appendChild(img)
         }
         tr.appendChild(td);
     }
-
-    
 }
-
 
 
 
