@@ -101,7 +101,6 @@ function pagrindine() {
             check.classList.add("icons","check");
             td.appendChild(check);
             check.onclick = function(){
-                // (lineThrough)?td.classList.remove("line-through"):td.classList.add("line-through")lineThrough = true;
                 if(lineThrough){
                     td.classList.remove("line-through")
                     lineThrough =false;
