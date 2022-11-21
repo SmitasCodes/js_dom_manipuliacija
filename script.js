@@ -16,44 +16,53 @@ function pagrindine() {
     const percent = document.querySelector('#percent');
     // gaunama data
     let today = new Date();
-    let dateTime = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate()+' '+today.getHours()+"-"+today.getMinutes()+"-"+today.getSeconds();;
-    
+    let dateTime = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + ' ' + today.getHours() + "-" + today.getMinutes() + "-" + today.getSeconds();;
+    // kintamieji 
+    let inputSkaicius = 0;
     // Objektas atspaudinimui
-    arr =   [{ p: "p" },
-            { subject: subject.value },
-            { priority: priority.value },
-            { due: due.value },
-            { status: status.value },
-            { percent: percent.value},
-            { modified: dateTime }];
+    arr = [{ p: "p" },
+    { subject: subject.value },
+    { priority: priority.value },
+    { due: due.value },
+    { status: status.value },
+    { percent: percent.value },
+    { modified: dateTime }];
 
     // Ciklas kuris tikrina ar forma uzpildyta
     for (let key in arr) {
         for (let key2 in arr[key]) {
-            if (arr[key][key2].length == 0 ||arr[key][key2] =="disabled") {
+            if (arr[key][key2].length == 0 || arr[key][key2] == "disabled") {
                 alert('Prasome uzpildyti forma pilnai');
+                istrinimas();
                 return;
+            } else if (inputSkaicius != 6) {
+                inputSkaicius++;
+            } else {
+                for (let key in arr) {
+                    for (let key2 in arr[key]) {
+                        spausdinimas(key2, arr[key][key2]);
+                        arr[key][key2] = "";
+                    }
+                }
             }
-            spausdinimas(key2, arr[key][key2])
         }
     }
 
     // Funkcija kuri atspausdins duomenis
-    function spausdinimas(raktas,verte){
+    function spausdinimas(subjektas, verte) {
         tbody.appendChild(tr);
         tr.classList.add('row')
         let td = document.createElement('td');
-        td.classList.add(raktas + '-table');
+        td.classList.add(subjektas + '-table');
         td.innerHTML = verte;
-        if(raktas=="percent"){
+        if (subjektas == "percent") {
             let container = document.createElement('div');
             container.classList.add("container");
             let bar = document.createElement('div');
             bar.classList.add('percent-bar');
             container.appendChild(bar);
             td.appendChild(container);
-            console.log(verte)
-            switch (verte){
+            switch (verte) {
                 case '0':
                     bar.classList.add('percent0');
                     break;
@@ -70,28 +79,26 @@ function pagrindine() {
                     bar.classList.add('percent100');
                     break;
             }
-        } else if(raktas=="modified"){
+        } else if (subjektas == "modified") {
             let img = document.createElement("img");
             img.src = "./icons/close.png";
-            img.classList.add("close")
+            img.classList.add("close");
+            img.onclick = function () {
+                tr.innerHTML = "";
+            };
             td.appendChild(img)
         }
         tr.appendChild(td);
     }
+
+    function istrinimas() {
+        for(let key in arr){
+            for(let key2 in arr[key]){
+                arr[key][key2] = "";
+            }
+        }
+    }
+
 }
 
-
-
-
-// document.body.appendChild(container)
-
-
-
-// let container = document.createElement('div');
-//             container.classList.add("container");
-//             let bar = document.createElement('div');
-//             bar.classList.add('percent-bar');
-//             container.appendChild(bar)
-//             td.innerHTML = verte;
-//             tr.appendChild(td);
-
+// { p: "p" },
