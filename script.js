@@ -3,9 +3,8 @@ function pagrindine() {
     event.preventDefault();
     // Reikalingi kintamieji su html elementais
     const tbody = document.querySelector('tbody');
-    // Elementai kurie bus sukurti
+    // Elementai kurie bus sukurti paspaudus submit
     const tr = document.createElement('tr');
-    const td = document.createElement('td');
     // Klases kurios yra pridedamos prie elementu
     tr.classList.add("row");
     // Gaunamos input vertes
@@ -20,7 +19,7 @@ function pagrindine() {
     // kintamieji 
     let inputSkaicius = 0;
     // Objektas atspaudinimui
-    arr = [{ p: "p" },
+    arr = [{ p: "./icons/tbody.png" },
     { subject: subject.value },
     { priority: priority.value },
     { due: due.value },
@@ -33,13 +32,13 @@ function pagrindine() {
         for (let key2 in arr[key]) {
             if (arr[key][key2].length == 0 || arr[key][key2] == "disabled") {
                 alert('Prasome uzpildyti forma pilnai');
-                istrinimas();
                 return;
             } else if (inputSkaicius != 6) {
                 inputSkaicius++;
             } else {
                 for (let key in arr) {
                     for (let key2 in arr[key]) {
+                        istrynimas();
                         spausdinimas(key2, arr[key][key2]);
                         arr[key][key2] = "";
                     }
@@ -80,25 +79,29 @@ function pagrindine() {
                     break;
             }
         } else if (subjektas == "modified") {
-            let img = document.createElement("img");
-            img.src = "./icons/close.png";
-            img.classList.add("close");
-            img.onclick = function () {
+            let close = document.createElement("img");
+            close.src = "./icons/close.png";
+            close.classList.add("icons","close");
+            close.onclick = function () {
                 tr.innerHTML = "";
+                tr.classList.remove("row");
             };
-            td.appendChild(img)
+            td.appendChild(close)
+        } else if(subjektas == "p"){
+            td.innerHTML = "";
+            let tbody = document.createElement("img");
+            tbody.src = verte;
+            tbody.classList.add("icons");
+            td.appendChild(tbody);
         }
         tr.appendChild(td);
     }
-
-    function istrinimas() {
-        for(let key in arr){
-            for(let key2 in arr[key]){
-                arr[key][key2] = "";
-            }
-        }
+    function istrynimas(){
+        subject.value = "";
+        priority.value ="disabled";
+        due.value = "";
+        status.value = "disabled";
+        percent.value = "disabled";
     }
 
 }
-
-// { p: "p" },

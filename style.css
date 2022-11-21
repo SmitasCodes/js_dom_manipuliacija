@@ -144,9 +144,16 @@ table th {
 
 /* Icons */
 
-.close {
-    height: 25px;
-    width: 25px;
-    float: right;
+.icons {
+    height: 24px;
+    width: 24px;
     margin-bottom: 5px;
+}
+
+.close{
+    float: right;
+}
+
+.thead{
+    margin-top: 10px;
 }
