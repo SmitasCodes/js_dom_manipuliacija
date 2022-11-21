@@ -108,6 +108,15 @@ function pagrindine() {
                     td.classList.add("line-through");lineThrough = true;
                 }
             }
+        } else if(subjektas == "priority"){
+            console.log(verte)
+            if(verte=="high"){
+                td.classList.add("priority-high")
+            } else if(verte=="normal"){
+                td.classList.add("priority-normal")
+            } else if(verte=="low"){
+                td.classList.add("priority-low")
+            }
         }
         tr.appendChild(td);
     }
