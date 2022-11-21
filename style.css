@@ -142,6 +142,9 @@ table th {
     width: 100%;
 }
 
+/* Priority styling */
+
+
 /* Icons */
 
 .icons {
@@ -157,3 +160,13 @@ table th {
 .thead{
     margin-top: 10px;
 }
+
+.check{
+    float: left;
+    margin-left: 50px;
+}
+
+.line-through{
+    text-decoration: line-through;
+}
+

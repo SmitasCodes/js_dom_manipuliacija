@@ -54,6 +54,8 @@ function pagrindine() {
         let td = document.createElement('td');
         td.classList.add(subjektas + '-table');
         td.innerHTML = verte;
+
+        let lineThrough = false;
         if (subjektas == "percent") {
             let container = document.createElement('div');
             container.classList.add("container");
@@ -93,6 +95,20 @@ function pagrindine() {
             tbody.src = verte;
             tbody.classList.add("icons");
             td.appendChild(tbody);
+        } else if(subjektas == "subject"){
+            let check = document.createElement("img");
+            check.src = "./icons/check.png"
+            check.classList.add("icons","check");
+            td.appendChild(check);
+            check.onclick = function(){
+                // (lineThrough)?td.classList.remove("line-through"):td.classList.add("line-through")lineThrough = true;
+                if(lineThrough){
+                    td.classList.remove("line-through")
+                    lineThrough =false;
+                } else{
+                    td.classList.add("line-through");lineThrough = true;
+                }
+            }
         }
         tr.appendChild(td);
     }
